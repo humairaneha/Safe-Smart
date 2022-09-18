@@ -1,0 +1,62 @@
+﻿.mine{
+    margin-bottom:0px;
+}
+.navbar {
+    background-color: #242F9B;
+    height: 5rem;
+    --bs-navbar-brand-hover-color: #519fff;
+
+}
+
+.navbar-brand{
+    color:white;
+    font-size:1.7rem;
+    font-weight:600;
+}
+.navbar {
+    --bs-navbar-active-color: #acb0ff;
+    --bs-navbar-brand-hover-color: #519fff;
+    --bs-navbar-margin: 0px;
+}
+div.container-fluid{
+    padding-left:2rem;
+}
+.navbar-nav {
+    --bs-nav-link-color: white;
+    --bs-nav-link-hover-color: #acb0ff;
+   
+    padding-left: 2rem;
+}
+.copyright-text{
+    color:#2d2d2d;
+}
+
+footer {
+    
+}
+
+img.w-100{
+    height:78vh;
+}
+.carousel {
+top:0px;
+left:0px;
+
+}
+
+.my-container{
+    display:flex;
+    justify-content:space-evenly;
+    margin-top:80px;
+}
+
+.img-div {
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgb(36 47 155 / 0.83) ;
+    height: 260px;
+    width: 320px;
+    text-align: left;
+    padding: 20PX;
+    
+   
+}

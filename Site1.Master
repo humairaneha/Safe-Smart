@@ -1,0 +1,374 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Smart_and_safe.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <script type='text/javascript' src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+   
+   
+     <link href="StyleSheet1.css" rel="stylesheet" />
+    <script type='text/javascript'> 
+        function hideModal(){
+            $('#exampleModalCenter2').modal('hide');
+        }
+        
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+         <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+        <div class="mine mb-0">
+           <nav class="navbar  navbar-expand-lg navbar-light mb-0 ">
+  <div class="container-fluid mb-0">
+    <a class="navbar-brand" href="#">Smart&Safe</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/WebForm1.aspx">Home</a>
+        </li>
+                    <li class="nav-item active">
+                            <asp:LinkButton href="Buy.aspx" class="nav-link" ID="LinkButton4"  runat="server" >Buy</asp:LinkButton>
+                        </li>
+        <li class="nav-item">
+           <asp:LinkButton href="WebForm2.aspx" class="nav-link" ID="LinkButton1"  runat="server">Sell</asp:LinkButton>
+        </li>
+          <li class="nav-item">
+           <asp:LinkButton class="nav-link" ID="LinkButton5"  runat="server" OnClick="LinkButton5_Click">Exchange</asp:LinkButton>
+                   
+              </li>
+           <li class="nav-item ">
+          <asp:Hyperlink class="nav-link" ID="report_link" runat="server"   href="#imei" data-bs-toggle="modal" data-bs-target="#imei" >Report Lost Imei</asp:Hyperlink>
+       
+              
+    <!--imei form-->   
+          <div class="modal fade" id="imei" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+     
+          <div class="modal-header">
+            <h5 class="modal-title">Have you lost your phone?Report it to our website.</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="mb-2">
+                <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card ">
+               <div class="card-body">
+                   <div class="row">
+                       <div class="col-md-12">
+                <label for="imei1">IMEI1<span class="text-danger">*</span></label>
+           <asp:TextBox CssClass="form-control" ID="imei1" runat="server" placeholder="Imei1"></asp:TextBox> </div>
+                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" ValidationGroup="imei" ControlToValidate="imei1" runat="server" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+           </div>
+
+           <div class="row">
+               <div class="col-md-12">
+                <label for="imei2">IMEI2<span class="text-danger">*</span></label>
+        <asp:TextBox CssClass="form-control" ID="imei2" runat="server" placeholder="Imei2" ></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ValidationGroup="imei" ControlToValidate="imei2" runat="server" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+            </div>  </div>
+            
+                 <div class="row">
+               <div class="col-md-12">
+                <label for="gd">GD NO<span class="text-danger">*</span></label>
+        <asp:TextBox CssClass="form-control" ID="gd" runat="server" placeholder="General Diary No"></asp:TextBox>
+                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="imei" ControlToValidate="gd" runat="server" ErrorMessage="Required" ForeColor="Red"></asp:RequiredFieldValidator>
+            </div>  </div>
+          </div>  
+                </div> </div> </div> </div> </div> </div>
+
+          <div class="modal-footer pt-4">                  
+              <asp:Button class="btn btn-success mx-auto w-100" ID="Buttonreport" ValidationGroup="imei" Text="Report" OnClick="Buttonreport_Click" runat="server"  UseSubmitBehavior="False" CausesValidation="true"/>
+          </div>
+
+ 
+    </div> 
+  </div>
+</div>
+
+                                         
+ </li>
+
+       
+         
+      </ul>
+
+              <ul class="navbar-nav pr-2 " style="margin-left:auto;margin-right:25px",>
+                                     
+
+ <!--Admin Login Form -->
+<div class="modal fade" id="exampleModalCenter3" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+     
+          <div class="modal-header">
+            <h5 class="modal-title">Admin Login Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="mb-2">
+                <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card ">
+               <div class="card-body">
+                   <div class="row">
+                       <div class="col-md-12">
+                <label for="Username">Admin Id<span class="text-danger">*</span></label>
+           <asp:TextBox CssClass="form-control" ID="TextBox5" runat="server" placeholder="Username"></asp:TextBox> </div>
+           </div>
+
+           <div class="row">
+               <div class="col-md-12">
+                <label for="Password">Password<span class="text-danger">*</span></label>
+        <asp:TextBox CssClass="form-control" ID="TextBox8" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+            </div>  </div>
+            
+                   <div class="row">
+                       <div class="col-md-12">
+             <asp:CheckBox ID="remember1" CausesValidation="false"   class="form-check-input" runat="server" />
+                <label class="form-check-label" for="remember1">Remember Me</label>
+                <a href="#" class="float-end">Forgot Password</a> </div>
+            </div>
+          </div>  
+                </div> </div> </div> </div> </div> </div>
+
+          <div class="modal-footer pt-4">                  
+              <asp:Button class="btn btn-success mx-auto w-100" ID="Button3" runat="server" Text="Login" onclick="Button3_Click" UseSubmitBehavior="False" CausesValidation="false"/>
+          </div>
+
+ 
+    </div> 
+  </div>
+</div>
+
+                                         
+                       
+                        <li class="nav-item active">
+                           
+                            <asp:Hyperlink href="#exampleModalCenter" ID="login_link" class="nav-link" runat="server" data-bs-toggle="modal" data-bs-target="#exampleModalCenter" Visible="false">
+   Login
+  </asp:Hyperlink> 
+        <!--user Login Form -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" aria-hidden="true">
+
+  <div class="modal-dialog modal-dialog-centered">
+             
+
+    <div class="modal-content">
+
+     
+          <div class="modal-header">
+            <h5 class="modal-title">User Login Form</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <div class="mb-2">
+                <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="card ">
+               <div class="card-body">
+                   <div class="row">
+                       <div class="col-md-12">
+                <label for="Username">Username<span class="text-danger">*</span></label>
+           <asp:TextBox CssClass="form-control" ID="TextBox1" runat="server" placeholder="Username"></asp:TextBox> </div>
+             <asp:RequiredFieldValidator ID="RequiredFieldValidator4" ControlToValidate="TextBox1" ValidationGroup="login" runat="server" ForeColor="red" ErrorMessage="Required"></asp:RequiredFieldValidator>
+           </div>
+
+           <div class="row">
+               <div class="col-md-12">
+                <label for="Password">Password<span class="text-danger">*</span></label>
+        <asp:TextBox CssClass="form-control" ID="TextBox2" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator5" ControlToValidate="TextBox2" ValidationGroup="login" runat="server" ForeColor="red" ErrorMessage="Required"></asp:RequiredFieldValidator>
+            </div>  </div>
+            
+                   <div class="row">
+                       <div class="col-md-12">
+                        <asp:CheckBox ID="remember"  class="form-check-input" runat="server" />
+                
+                <label class="form-check-label" for="remember">Remember Me</label>
+                <a href="#" class="float-end">Forgot Password</a> </div>
+            </div>
+          </div>  
+                </div> </div> </div> </div> </div> </div>
+
+          <div class="modal-footer pt-4">                  
+              <asp:Button class="btn btn-success mx-auto w-100" ValidationGroup="login" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" UseSubmitBehavior="False" CausesValidation="true"/>
+          </div>
+          <p class="text-center">Don't have an account? <a href="usersignup.aspx">Signup</a></p> 
+ 
+    </div> 
+     
+   
+  </div>
+
+    </div>
+    </li>
+                     
+                            
+                       
+          <li class="nav-item active">
+                   <asp:Hyperlink ID="signup_link" href="/usersignup.aspx" class="nav-link" runat="server" Visible="false" >
+   Signup
+  </asp:Hyperlink>     
+              
+           
+                            
+          </li>
+                       <li class="nav-item active">
+                   <asp:Hyperlink ID="imei_link"  class="nav-link" runat="server" Visible="false" >
+   Lost Imei
+  </asp:Hyperlink>     
+              
+           
+                            
+          </li>
+                   
+                   <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" Visible="False" CausesValidation="false" OnClick="LinkButton2_Click">Review Post</asp:LinkButton>
+
+                        </li>
+                     <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton6" runat="server" Visible="False">My Profile</asp:LinkButton>
+
+                        </li>
+                    <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" href="mypost.aspx" ID="LinkButton8" runat="server" Visible="False">My Ad</asp:LinkButton>
+
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" OnClick="LinkButton3_Click" CausesValidation="false" runat="server" Visible="false">Logout</asp:LinkButton>
+                        </li>
+
+                        <li class="nav-item active">
+                            <asp:LinkButton class="nav-link" ID="LinkButton7" runat="server" Visible="false">Hello user</asp:LinkButton>
+
+                        </li>
+                   
+                    </ul>
+    </div>
+  </div>
+</nav>
+        </div>
+        
+        <div class="mb-0">
+   <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    </asp:ContentPlaceHolder>
+        </div>
+        
+
+        <footer class=" text-center text-lg-start mb-0">
+  <!-- Grid container -->
+        <div class="container " style="margin-top:100px;margin-bottom:40px;">   
+            <div class="row" style="background-color:white">
+
+          <div class="col-1">
+              <img alt="" src="image/apple.png" height="80" width="80" />
+          </div>
+           <div class="col-1">
+              <img alt="" src="image/samsung.png" height="80" width="80" />
+          </div>
+                <div class="col-1">
+              <img alt="" src="image/huawei.png" height="80" width="80"/>
+          </div>
+                   <div class="col-1">
+              <img alt="" src="image/asus.png" height="80" width="80"/>
+          </div>
+           
+                    <div class="col-1">
+              <img alt="" src="image/htc.png" height="80" width="80"/>
+          </div>
+                    <div class="col-1">
+              <img alt="" src="image/lenovo.png" height="80" width="80"/>
+          </div>
+                    <div class="col-1">
+              <img alt="" src="image/lg.png" height="80" width="80"/>
+          </div>
+                    <div class="col-1">
+              <img alt="" src="image/motorola.png" height="80" width="80"/>
+          </div>
+    <div class="col-1">
+              <img alt="" src="image/sony.png" height="80" width="80"/>
+          </div>
+                    <div class="col-1">
+              <img alt="" src="image/nokia.png" height="80" width="80"/>
+          </div>
+                           <div class="col-1">
+              <img alt="" src="image/xiaomi.png" height="80" width="80"/>
+          </div>
+                                 <div class="col-1">
+              <img alt="" src="image/oneplus.png" height="80" width="80"/>
+          </div>
+            </div>
+  </div> 
+            
+  <div class="text-center p-4  " style="background-color:#e0e2ff;">
+<!--Grid row-->
+    <div class="row">
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <h5 class="text-uppercase">Secure Delivery</h5>
+
+       
+      </div>
+      <!--Grid column-->
+
+      <!--Grid column-->
+      <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <h5 class="text-uppercase">Safe Trade</h5>
+
+       
+      </div>
+              <div class="col-lg-4 col-md-4 mb-4 mb-md-0 text-center">
+        <h5 class="text-uppercase">Verify Imei</h5>
+
+        
+      </div>
+      <!--Grid column-->
+    </div>
+    <!--Grid row-->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-3 copyright-text" style="background-color:#acb0ff ">
+    
+       <ul class="navbar-nav" >
+          <li class="nav-item active" >
+                   <asp:Hyperlink href="#exampleModalCenter3" ID="admin_login" CssClass="nav-link HyperLinkHover" style="color: navy;
+    text-decoration: none;" runat="server" data-bs-toggle="modal" data-bs-target="#exampleModalCenter3">
+   Admin Login
+  </asp:Hyperlink> 
+          </li>
+      </ul>
+      © 2022 Copyright:
+    <a class="text-dark" style="text-decoration:none;" href="#">Smart&Safe</a>
+
+     
+  </div>
+  <!-- Copyright -->
+</footer>
+
+
+    </form>
+     
+</body>
+</html>
